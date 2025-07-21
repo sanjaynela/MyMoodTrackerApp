@@ -1,5 +1,19 @@
 # Core ML Integration Summary 🚀
 
+## End-to-End Workflow (Recommended)
+
+1. **Generate Data & Train Model (Python)**
+   - Run `train_mood_model.py` to generate realistic mood data, train a Random Forest model, and export it as `MoodPredictor.mlmodel`.
+2. **Test the Model (Python, Optional)**
+   - Run `test_coreml_model.py` to verify the model's predictions before using it in the app.
+3. **Add Model to Xcode**
+   - Add `MoodPredictor.mlmodel` to your Xcode project (see README for details).
+   - Xcode auto-generates a `MoodPredictor` Swift class for use in your app.
+4. **Use the Model in Swift**
+   - The app loads the Core ML model and uses it for all mood predictions, on-device and privacy-first.
+
+---
+
 ## ✅ **Successfully Completed!**
 
 ### **What We Built:**
@@ -48,10 +62,10 @@ pip install pandas numpy scikit-learn coremltools
 5. **Integration**: Added to Xcode project
 
 ### **Swift Integration**
-- **Model Loading**: Automatic Core ML model loading with fallback
+- **Model Loading**: Automatic Core ML model loading
 - **Prediction Interface**: Clean API for mood predictions
 - **Confidence Scoring**: Real ML-based confidence scores
-- **Error Handling**: Graceful fallback to heuristic model
+- **Error Handling**: Graceful fallback to neutral if model fails
 
 ## 📱 **App Features Enhanced:**
 
@@ -60,11 +74,6 @@ pip install pandas numpy scikit-learn coremltools
 - ✅ High confidence scores (80-99%)
 - ✅ Feature importance visualization
 - ✅ Model transparency
-
-### **Fallback System**
-- ✅ Heuristic model as backup
-- ✅ Graceful error handling
-- ✅ Consistent API regardless of model
 
 ### **User Experience**
 - ✅ Model information view
@@ -76,7 +85,7 @@ pip install pandas numpy scikit-learn coremltools
 
 1. **Privacy-First**: All ML processing happens on-device
 2. **High Accuracy**: 80% test accuracy with realistic data
-3. **Robust**: Fallback system ensures app always works
+3. **Robust**: App always works, even if model fails
 4. **Transparent**: Users can see how predictions work
 5. **Scalable**: Easy to retrain and update models
 
