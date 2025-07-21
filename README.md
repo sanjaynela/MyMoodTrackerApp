@@ -10,9 +10,10 @@ A privacy-first mood tracking app that uses machine learning to predict your moo
 - **Local Storage**: All data stored locally on your device for privacy
 
 ### 🤖 Mood Prediction
-- **ML-Powered Predictions**: Predict your mood based on your daily patterns
+- **Core ML Integration**: Advanced machine learning predictions using Core ML
 - **Confidence Scoring**: See how confident the prediction is
 - **Personalized Insights**: Get actionable insights about your lifestyle
+- **Model Transparency**: View feature importance and model details
 
 ### 📈 Analytics & Visualization
 - **Mood Trends**: Visualize your mood over time with beautiful charts
@@ -40,10 +41,11 @@ struct MoodEntry: Identifiable, Codable {
 
 ### Core Components
 - **MoodDataManager**: Handles data persistence and CRUD operations
-- **MoodPredictor**: Simple ML model for mood prediction
+- **MoodPredictorCoreML**: Core ML-powered mood prediction
 - **DashboardView**: Main app interface
 - **MoodChartsView**: Analytics and visualization
 - **MoodEntryFormView**: Data entry interface
+- **ModelInfoView**: ML model transparency and details
 
 ## 🚀 Getting Started
 
@@ -66,15 +68,23 @@ struct MoodEntry: Identifiable, Codable {
 ## 🧠 Machine Learning Approach
 
 ### Current Implementation
-The app uses a simple heuristic-based prediction model that considers:
+The app uses an enhanced heuristic-based prediction model with Core ML architecture that considers:
 - **Sleep Quality**: Optimal sleep (7-9 hours) boosts mood score
 - **Physical Activity**: Higher step counts correlate with better mood
 - **Screen Time**: Lower screen time generally indicates better mood
+- **Confidence Scoring**: Feature-based confidence calculation
+
+### Core ML Integration
+- **Model Architecture**: Ready for trained Core ML models
+- **Feature Importance**: Visual representation of feature weights
+- **Model Transparency**: Detailed model information and insights
+- **Easy Upgrade Path**: Simple replacement with trained models
 
 ### Future Enhancements
-- **Core ML Integration**: Replace heuristics with trained ML models
+- **Trained Core ML Models**: Replace heuristics with actual trained models
 - **HealthKit Integration**: Automatic data collection from Apple Health
 - **Advanced Analytics**: More sophisticated pattern recognition
+- **Personalized Training**: Models that adapt to individual patterns
 
 ## 📱 Screenshots
 

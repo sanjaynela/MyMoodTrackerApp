@@ -19,7 +19,7 @@ struct DashboardView: View {
         var screenTime: Double = 2.0
     }
     
-    private let moodPredictor = MoodPredictor()
+    private let moodPredictor = MoodPredictorCoreML()
     
     var body: some View {
         NavigationView {

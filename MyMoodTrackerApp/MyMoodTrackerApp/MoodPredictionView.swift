@@ -17,8 +17,9 @@ struct MoodPredictionView: View {
     @State private var showingPrediction = false
     @State private var predictedMood: MoodType = .neutral
     @State private var confidence: Double = 0.0
+    @State private var showingModelInfo = false
     
-    private let moodPredictor = MoodPredictor()
+    private let moodPredictor = MoodPredictorCoreML()
     
     var body: some View {
         NavigationView {
@@ -171,24 +172,29 @@ struct MoodPredictionView: View {
                         dismiss()
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Model Info") {
+                        showingModelInfo = true
+                    }
+                }
             }
+        }
+        .sheet(isPresented: $showingModelInfo) {
+            ModelInfoView()
         }
     }
     
     private func predictMood() {
         guard let stepsInt = Int(steps), stepsInt >= 0 else { return }
         
-        predictedMood = moodPredictor.predictMood(
+        let prediction = moodPredictor.predictMood(
             sleepHours: sleepHours,
             steps: stepsInt,
             screenTime: screenTime
         )
         
-        confidence = moodPredictor.getPredictionConfidence(
-            sleepHours: sleepHours,
-            steps: stepsInt,
-            screenTime: screenTime
-        )
+        predictedMood = prediction.0
+        confidence = prediction.1
         
         showingPrediction = true
     }
